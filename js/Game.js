@@ -31,17 +31,17 @@ class Game {
     form = new Form();
     form.display();
 
-    mermaid1 = createSprite(width - 100,height / 2 - 50);
-    mermaid1.addImage("mermaid1", mermaid1_img);
-    mermaid1.scale = 1.5;
+    mermaid1 = createSprite(90,height / 2 -200);
+    mermaid1.addAnimation("mermaid1", mermaid1_img);
+    mermaid1.scale = 2;
 
-    mermaid1.addImage("blast", blastImage);
+    mermaid1.addAnimation("blast", blastImage);
 
-    mermaid2 = createSprite( width - 100,height / 2 + 100);
-    mermaid2.addImage("mermaid2", mermaid2_img);
-    mermaid2.scale = 1.5;
+    mermaid2 = createSprite(90,height / 2 + 400);
+    mermaid2.addAnimation("mermaid2", mermaid2_img);
+    mermaid2.scale = 2;
 
-    mermaid2.addImage("blast", blastImage);
+    mermaid2.addAnimation("blast", blastImage);
     
     mermaids = [mermaid1, mermaid2];
 
@@ -59,7 +59,7 @@ class Game {
       { x: width - 3300, y: height/ 2 - 180 , image: obstacle1Image },
       { x: width- 3300 , y: height/ 2 + 180 , image: obstacle3Image },
       { x: width- 3800 , y: height / 2 + 250, image: obstacle4Image },
-      { x: width- 4300, y: height  / 2 - 150, image: obstacleImage },
+      { x: width- 4300, y: height  / 2 - 150, image: obstacle1Image },
       { x: width- 4800, y: height  / 2 + 250, image: obstacle2Image },
       { x: width- 5300 , y: height/ 2 , image: obstacle3Image },
       { x: width - 5500, y: height / 2 - 180, image: obstacle4Image }
@@ -148,8 +148,8 @@ class Game {
         index = index + 1;
 
         //use data form the database to display the mermaids in x and y direction
-        var x = allPlayers[plr].positionX;
-        var y = height - allPlayers[plr].positionY;
+        var x = width- allPlayers[plr].positionX;
+        var y = allPlayers[plr].positionY;
 
         //save the value of player.life in a temp variable
         var currentLife = allPlayers[plr].life;
@@ -170,7 +170,7 @@ class Game {
           this.handleFuel(index);
           this.handlePowerCoins(index);
           this.handleObstacleCollision(index);
-          this. handleCarACollisionwithCarB(index);
+          this.handleMermaidACollisionwithMermaidB(index);
 
           if(player.life <= 0){
             this.blast = true;
@@ -178,7 +178,7 @@ class Game {
           }
 
           // Changing camera position in y direction
-          camera.position.y = mermaids[index - 1].position.y;
+          camera.position.x = mermaids[index - 1].position.x;
         }
       }
 
@@ -205,7 +205,7 @@ class Game {
     }
   }
 
-  handleMermaidACollisionwithMermaidrB(index){
+  handleMermaidACollisionwithMermaidB(index){
     if(index === 1){
       if(mermaids[index-1].collide(mermaids[1])){
         if(this.leftKeyActive){
@@ -337,21 +337,21 @@ class Game {
 
   handlePlayerControls() {
     if(!this.blast){
-      if (keyIsDown(UP_ARROW)) {
+      if (keyIsDown(RIGHT_ARROW)) {
         this.playerMoving = true;
-        player.positionY += 10;
+        player.positionX += 10;
         player.update();
       }
   
-      if (keyIsDown(LEFT_ARROW) && player.positionX > width / 3 - 50) {
+      if (keyIsDown(UP_ARROW) ) { //&& player.positionX > width / 3 - 50
         this.leftKeyActive = true;
-        player.positionX -= 5;
+        player.positionY -= 5;
         player.update();
       }
   
-      if (keyIsDown(RIGHT_ARROW) && player.positionX < width / 2 + 300) {
+      if (keyIsDown(DOWN_ARROW)) {// && player.positionX < width / 2 + 300
         this.leftKeyActive = false;
-        player.positionX += 5;
+        player.positionY += 5;
         player.update();
       }
     }

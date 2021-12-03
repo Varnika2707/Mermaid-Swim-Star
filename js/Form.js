@@ -7,15 +7,15 @@ class Form {
   }
 
   setElementsPosition() {
-    this.titleImg.position(width/2-100, 50);
-    this.inputText.position(width/2 - 110,height/2 - 80);
-    this.playButton.position(width/2 - 110,height/2 - 60);
-    this.greeting.position(width / 2 - 300, height / 2 - 100);
+    this.titleImg.position(width/2 - 140, 50);
+    this.inputText.position(width/2 - 133,height/2+10);
+    this.playButton.position(width/2 - 75,height/2 + 60);
+    this.greeting.position(width / 2 - 300, height / 2 + 100);
   }
 
   setElementsStyle() {
     this.titleImg.class("gameTitle");
-    //this.input.class("customInput");
+    this.inputText.class("customInput");
     this.playButton.class("customButton");
     this.greeting.class("greeting");
   }
@@ -49,4 +49,3 @@ class Form {
     this.handleMousePressed();
   }
 }
-

@@ -9,19 +9,20 @@ var mermaids = [];
 var blastImage;
 
 function preload() {
-  backgroundImage = loadImage("assets/background.jpg");
-  mermaid1_img = loadAnimation("../assets/mermaid1.png","../assets/mermaid2.png");
-  mermaid2_img = loadAnimation("../assets/mermaid01.png","../assets/mermaid02.png");
-  track = loadImage("../assets/pool.png");
-  fuelImage = loadImage("./assets/energyDrink.png");
-  powerCoinImage = loadImage("./assets/coin.png");
-  obstacle1Image = loadImage("./assets/octopus.png");
-  obstacle2Image = loadImage("./assets/starfish.png");
-  obstacle3Image = loadImage("./assets/turtle.png");
-  obstacle4Image = loadImage("./assets/shell.png");
-  lifeImage = loadImage("./assets/life.png");
-  blastImage = loadImage("./assets/blast.png");
+  backgroundImage = loadImage("assets/background1.jpg");
+  mermaid1_img = loadAnimation("assets/mermaid1.png","assets/mermaid2.png");
+  mermaid2_img = loadAnimation("assets/mermaid01.png","assets/mermaid02.png");
+  track = loadImage("assets/pool.png");
+  fuelImage = loadImage("assets/energyDrink.png");
+  powerCoinImage = loadImage("assets/coin.png");
+  obstacle1Image = loadImage("assets/octopus.png");
+  obstacle2Image = loadImage("assets/starfish.png");
+  obstacle3Image = loadImage("assets/turtle.png");
+  obstacle4Image = loadImage("assets/shell.png");
+  lifeImage = loadImage("assets/life.png");
+  blastImage = loadImage("assets/blast.png");
 }
+
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
@@ -31,9 +32,11 @@ function setup() {
   game.start();
 }
 
+
 function draw() {
-  image(backgroundImage,0,0,width,height)
-  //background(backgroundImage);
+  console.log("inside draw")
+  //image(backgroundImage,0,0,width,height)
+  background(backgroundImage);
   if (playerCount === 2) {
     game.update(1);
   }

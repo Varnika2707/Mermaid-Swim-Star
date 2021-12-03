@@ -14,9 +14,9 @@ class Player {
     var playerIndex = "players/player" + this.index;
 
     if (this.index === 1) {
-      this.positionX = width / 2 - 100;
+      this.positionY = height / 2 - 100;
     } else {
-      this.positionX = width / 2 + 100;
+      this.positionY = height / 2 + 100;
     }
 
     database.ref(playerIndex).set({
@@ -69,14 +69,14 @@ class Player {
   }
 
   getMermaidsAtEnd() {
-    database.ref("MermaidsAtEnd").on("value", data => {
+    database.ref("mermaidsAtEnd").on("value", data => {
       this.rank = data.val();
     });
   }
 
   static updateMermaidssAtEnd(rank) {
     database.ref("/").update({
-      MermaidsAtEnd: rank
+      mermaidsAtEnd: rank
     });
   }
 }

@@ -14,32 +14,31 @@ canvas {
 }
 
 .gameTitle{
-  width: 10%;
-  height:30%;
+  width: 20%;
+  height:40%;
 }
 
 .gameTitleAfterEffect{
-  width: 25%;
-  height: 80px;
+  width: 10%;
+  height: 20%;
 }
 
 .greeting{
   font-size: 40px;
-  color: white;
+  color: blue;
   font-family: vollkorn;
   text-align: center;
 }
 
 .customInput {
-  width:200px;
-  height:30px;
+  width:200;
+  height:30;
   border: 3px solid white;
   border-radius: 5px;
   padding: 5px;
-  background-color:transparent;
   font-size: 20px;
   outline:none;
-  color:white;
+  color:rgb(255, 0, 106);
   font-family: vollkorn;
   text-align: center;
 }
@@ -74,7 +73,7 @@ canvas {
 .resetButton {
   width:60px;
   height:60px;
-  background-image: url('./assets/reset.png');
+  background-image: url('assets/reset.png');
   background-size: cover;
   border-radius: 30px;
   display: inline-block;
